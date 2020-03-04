@@ -1,0 +1,156 @@
+/* CSS Defaults https://github.com/anandgraves/css-defaults */
+* {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  font-size: 100%;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2 {
+	font-size: 125%;
+	font-weight: normal;
+}
+
+.h2 {
+  margin-bottom: .5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+
+html {
+	font-family: IBM Plex Sans, sans-serif;
+	font-size: 110%;
+  color: #333;
+  font-weight: 400;
+}
+
+a {
+	color: green;
+	text-decoration: underline;
+}
+
+::selection {
+	background-color: #d461d1;
+}
+
+main {
+	max-width: 600px;
+	margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+@media (min-width: 700px) {
+	main {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+ul {
+	margin-left: 1rem;
+}
+
+li + li {
+	margin-top: 1rem;
+}
+
+.dice {
+	text-align: center;
+}
+
+.list {
+  margin-bottom: 4rem;
+	list-style-type: square;
+}
+
+.title {
+	font-weight: 700;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: green;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: green;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.intro {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  line-height: 1.45;
+}
+
+.passphrase {
+	display: flex;
+	align-items: center;
+	padding: 24px;
+	width: 100%;
+	min-height: 155px;
+	font-size: 24px;
+	text-align: center;
+	border: 2px dashed #3ab73a;
+}
+
+.button {
+	display: inline-block;
+	padding: 1.2rem 2rem;
+	background-color: green;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	cursor: pointer;
+	color: #fff;
+	border: 0;
+  font-size: 16px;
+  font-weight: 600;
+	margin-top: 2rem;
+}
