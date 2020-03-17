@@ -7,6 +7,8 @@ async function init() {
     const response = await import("./wordslist.json");
     const button = document.querySelector("[data-generate]");
     const input = document.querySelector("[data-passphrase]");
+    button.removeAttribute("disabled");
+    button.textContent = "Generate secure passphrase";
 
     button.onclick = function() {
       const passphrase = diceThrows().map(dice => response[dice]);

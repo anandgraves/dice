@@ -13,7 +13,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -33,12 +35,12 @@ main {
 
 h1,
 h2 {
-	font-size: 125%;
-	font-weight: normal;
+  font-size: 125%;
+  font-weight: normal;
 }
 
 .h2 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 ul {
@@ -55,56 +57,56 @@ button {
 }
 
 html {
-	font-family: IBM Plex Sans, sans-serif;
-	font-size: 110%;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 110%;
   color: #333;
   font-weight: 400;
 }
 
 a {
-	color: green;
-	text-decoration: underline;
+  color: green;
+  text-decoration: underline;
 }
 
 ::selection {
-	background-color: #d461d1;
+  background-color: #d461d1;
 }
 
 main {
-	max-width: 600px;
-	margin-top: 2rem;
+  max-width: 600px;
+  margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
-	padding-left: 16px;
-	padding-right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media (min-width: 700px) {
-	main {
-		padding-left: 0;
-		padding-right: 0;
-	}
+  main {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 ul {
-	margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 li + li {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .dice {
-	text-align: center;
+  text-align: center;
 }
 
 .list {
   margin-bottom: 4rem;
-	list-style-type: square;
+  list-style-type: square;
 }
 
 .title {
-	font-weight: 700;
+  font-weight: 700;
   font-size: 3.5rem;
   letter-spacing: 3px;
   line-height: 1;
@@ -131,26 +133,32 @@ li + li {
 }
 
 .passphrase {
-	display: flex;
-	align-items: center;
-	padding: 24px;
-	width: 100%;
-	min-height: 155px;
-	font-size: 24px;
-	text-align: center;
-	border: 2px dashed #3ab73a;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  width: 100%;
+  min-height: 155px;
+  font-size: 24px;
+  text-align: center;
+  border: 2px dashed #3ab73a;
 }
 
 .button {
-	display: inline-block;
-	padding: 1.2rem 2rem;
-	background-color: green;
-	text-transform: uppercase;
-	letter-spacing: .5px;
-	cursor: pointer;
-	color: #fff;
-	border: 0;
+  display: inline-block;
+  padding: 1.2rem 2rem;
+  background-color: green;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #fff;
+  border: 0;
   font-size: 16px;
   font-weight: 600;
-	margin-top: 2rem;
+  margin-top: 2rem;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+  color: green;
+  background-color: #bbb;
 }
