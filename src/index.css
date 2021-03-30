@@ -96,6 +96,11 @@ li + li {
   margin-top: 1rem;
 }
 
+.logo {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
 .dice {
   text-align: center;
 }
