@@ -96,6 +96,11 @@ li + li {
   margin-top: 1rem;
 }
 
+.logo {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
 .dice {
   text-align: center;
 }
@@ -123,6 +128,8 @@ li + li {
 }
 
 .description {
+  font-weight: 600;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
 }
 
@@ -133,14 +140,50 @@ li + li {
 }
 
 .passphrase {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 1.5rem 3.5rem;
   width: 100%;
   min-height: 155px;
   font-size: 24px;
   text-align: center;
   border: 2px dashed #3ab73a;
+  border-radius: 24px;
+}
+
+.passphrase__content:not(:empty) + .passphrase__button {
+  display: block;
+}
+
+.passphrase__button {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-right: 0.5rem;
+  border: 0;
+  background-color: transparent;
+}
+
+.passphrase__icon {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.passphrase__action-text {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.passphrase__path-copied {
+  display: none;
+}
+
+.passphrase__icon-text {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
 }
 
 .button {
@@ -149,6 +192,7 @@ li + li {
   background-color: green;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-radius: 50em;
   cursor: pointer;
   color: #fff;
   border: 0;
@@ -161,4 +205,8 @@ li + li {
   cursor: not-allowed;
   color: green;
   background-color: #bbb;
+}
+
+.hidden {
+  display: none;
 }

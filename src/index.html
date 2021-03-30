@@ -13,13 +13,53 @@
   <body>
     <main role="main">
       <article class="dice">
+        <svg class="logo" viewBox="0 0 512 512">
+          <g>
+            <path d="M0 0h512v512H0z" fill="green"></path>
+            <path
+              d="M302.87 255.5a47.37 47.37 0 1 1-47.37-47.37 47.37 47.37 0 0 1 47.37 47.37zM128.5 81.18a47.37 47.37 0 1 0 47.41 47.32 47.37 47.37 0 0 0-47.41-47.32zm253.91 0a47.37 47.37 0 1 0 47.41 47.32 47.37 47.37 0 0 0-47.32-47.32zM128.5 335.09a47.37 47.37 0 1 0 47.41 47.41 47.37 47.37 0 0 0-47.41-47.41zm253.91 0a47.37 47.37 0 1 0 47.41 47.41 47.37 47.37 0 0 0-47.32-47.41zm102 92.93a56.48 56.48 0 0 1-56.39 56.48h-344a56.48 56.48 0 0 1-56.52-56.48v-344A56.48 56.48 0 0 1 83.98 27.5h344a56.48 56.48 0 0 1 56.52 56.48zm-20-344a36.48 36.48 0 0 0-36.39-36.52h-344A36.48 36.48 0 0 0 47.5 83.98v344a36.48 36.48 0 0 0 36.48 36.52h344a36.48 36.48 0 0 0 36.52-36.48z"
+              fill="#fff"
+            ></path>
+          </g>
+        </svg>
         <h1 class="title">Dice</h1>
+
         <p class="subtitle">Passphrase Generator</p>
         <p class="description">
-          Create a strong, secure and memorable passphrase
+          Create a Strong, Secure and Memorable Passphrase
         </p>
 
-        <div class="passphrase" data-passphrase></div>
+        <div class="passphrase">
+          <div class="passphrase__content" data-passphrase></div>
+          <button class="passphrase__button" data-passphrase-copy>
+            <svg
+              class="passphrase__icon"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                data-passphrase-path-copy
+                visibility="visible"
+                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+              ></path>
+              <path
+                data-passphrase-path-copied
+                visibility="hidden"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+              ></path>
+            </svg>
+            <div class="passphrase__action-text" data-text-copy>Copy</div>
+            <div class="passphrase__action-text hidden" data-text-copy-done>
+              Copied!
+            </div>
+          </button>
+        </div>
         <button class="button" disabled data-generate>Loading words ...</button>
       </article>
 
@@ -41,30 +81,27 @@
 
       <ul class="list">
         <li>
-          <a
-            href="https://ssd.eff.org/en/module/creating-strong-passwords#1"
-            target="_blank"
-            rel="noreferrer noopener"
+          <a href="https://bitwarden.com/password-strength/">
+            Verify the strength of this generated password with Bitwarden's
+            Password Strength Testing Tool
+          </a>
+        </li>
+        <li>
+          <a href="https://ssd.eff.org/en/module/creating-strong-passwords#1"
             >Creating strong passwords using Dice</a
           >
         </li>
         <li>
           <a
             href="https://ssd.eff.org/en/module/animated-overview-how-make-super-secure-password-using-dice"
-            target="_blank"
-            rel="noreferrer noopener"
             >Animated Overview: How to Make a Super-Secure Password Using
             Dice</a
           >
         </li>
         <li>
-          <a
-            href="http://world.std.com/~reinhold/diceware.html"
-            target="_blank"
-            rel="noreferrer noopener"
-            >Diceware</a
-          >
+          <a href="http://world.std.com/~reinhold/diceware.html">Diceware</a>
         </li>
+        <li><a href="https://github.com/anandgraves/dice">Github</a></li>
       </ul>
     </main>
 
