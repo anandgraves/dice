@@ -37,11 +37,26 @@ async function handleCopyToClipboard() {
 
   try {
     await navigator.clipboard.writeText(input.textContent);
-    pathCopy.setAttribute("visibility", "hidden");
-    pathCopied.setAttribute("visibility", "visible");
+    toggleSvgPaths([pathCopy, pathCopied]);
+    setTimeout(() => toggleSvgPaths([pathCopy, pathCopied]), 1000);
   } catch (error) {
     console.log("Oops, unable to copy to clipboard", error);
   }
+}
+
+function toggleSvgPaths(paths) {
+  if (!Array.isArray(paths)) {
+    return;
+  }
+
+  paths.forEach((path) => {
+    const visibility = path.getAttribute("visibility");
+    if (visibility === "visible") {
+      path.setAttribute("visibility", "hidden");
+    } else {
+      path.setAttribute("visibility", "visible");
+    }
+  });
 }
 
 function getRandomInt(min, max) {
