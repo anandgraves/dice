@@ -5,17 +5,42 @@ init();
 async function init() {
   try {
     const response = await import("./wordslist.json");
-    const button = document.querySelector("[data-generate]");
+    const generateButton = document.querySelector("[data-generate]");
+    const copyButton = document.querySelector("[data-passphrase-copy]");
     const input = document.querySelector("[data-passphrase]");
-    button.removeAttribute("disabled");
-    button.textContent = "Generate secure passphrase";
 
-    button.onclick = function() {
-      const passphrase = diceThrows().map(dice => response[dice]);
+    generateButton.removeAttribute("disabled");
+    generateButton.textContent = "Generate secure passphrase";
+
+    generateButton.onclick = function () {
+      const passphrase = diceThrows().map((dice) => response[dice]);
       input.textContent = passphrase.join(" ");
     };
+
+    copyButton.onclick = handleCopyToClipboard;
   } catch (error) {
-    console.error(error);
+    console.error("Oops, problem with generating pasphrase");
+  }
+}
+
+async function handleCopyToClipboard() {
+  const pathCopy = document.querySelector("[data-passphrase-path-copy]");
+  const pathCopied = document.querySelector("[data-passphrase-path-copied]");
+  const input = document.querySelector("[data-passphrase]");
+  if (!input.textContent) {
+    return;
+  }
+
+  if (!navigator.clipboard) {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(input.textContent);
+    pathCopy.setAttribute("visibility", "hidden");
+    pathCopied.setAttribute("visibility", "visible");
+  } catch (error) {
+    console.log("Oops, unable to copy to clipboard", error);
   }
 }
 
@@ -36,7 +61,7 @@ function createDiceThrows() {
 }
 
 function joinDiceThrows(array) {
-  return array.map(value => Number(value.join("")));
+  return array.map((value) => Number(value.join("")));
 }
 
 function diceThrows() {
