@@ -24,6 +24,8 @@ async function init() {
 }
 
 async function handleCopyToClipboard() {
+  const textCopy = document.querySelector("[data-text-copy]");
+  const textCopyDone = document.querySelector("[data-text-copy-done]");
   const pathCopy = document.querySelector("[data-passphrase-path-copy]");
   const pathCopied = document.querySelector("[data-passphrase-path-copied]");
   const input = document.querySelector("[data-passphrase]");
@@ -38,10 +40,24 @@ async function handleCopyToClipboard() {
   try {
     await navigator.clipboard.writeText(input.textContent);
     toggleSvgPaths([pathCopy, pathCopied]);
-    setTimeout(() => toggleSvgPaths([pathCopy, pathCopied]), 1000);
+    toggleElements([textCopy, textCopyDone]);
+    setTimeout(() => {
+      toggleSvgPaths([pathCopy, pathCopied]);
+      toggleElements([textCopy, textCopyDone]);
+    }, 1000);
   } catch (error) {
     console.log("Oops, unable to copy to clipboard", error);
   }
+}
+
+function toggleElements(elements) {
+  if (!Array.isArray(elements)) {
+    return;
+  }
+
+  elements.forEach((element) => {
+    element.classList.toggle("hidden");
+  });
 }
 
 function toggleSvgPaths(paths) {
