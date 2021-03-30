@@ -144,6 +144,7 @@ li + li {
   font-size: 24px;
   text-align: center;
   border: 2px dashed #3ab73a;
+  border-radius: 24px;
 }
 
 .passphrase__content:not(:empty) + .passphrase__button {
@@ -186,6 +187,7 @@ li + li {
   background-color: green;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-radius: 50em;
   cursor: pointer;
   color: #fff;
   border: 0;
