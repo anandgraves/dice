@@ -1,10 +1,10 @@
 import "babel-polyfill";
+import { generatePassphrase } from "./generate-passphrase";
 
 init();
 
 async function init() {
   try {
-    const response = await import("./wordslist.json");
     const generateButton = document.querySelector("[data-generate]");
     const copyButton = document.querySelector("[data-passphrase-copy]");
     const input = document.querySelector("[data-passphrase]");
@@ -12,9 +12,9 @@ async function init() {
     generateButton.removeAttribute("disabled");
     generateButton.textContent = "Generate secure passphrase";
 
-    generateButton.onclick = function () {
-      const passphrase = diceThrows().map((dice) => response[dice]);
-      input.textContent = passphrase.join(" ");
+    generateButton.onclick = async function () {
+      const generatedPassphrase = await generatePassphrase();
+      input.textContent = generatedPassphrase;
     };
 
     copyButton.onclick = handleCopyToClipboard;
@@ -75,19 +75,24 @@ function toggleSvgPaths(paths) {
   });
 }
 
+/*
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function getDiceNumber() {
-  var MINIMUM = 1;
-  var MAXIMUM = 6;
-  return getRandomInt(MINIMUM, MAXIMUM);
+  const minimum = 1;
+  const maximun = 6;
+
+  return getRandomInt(minimum, maximun);
 }
 
 function createDiceThrows() {
-  return Array.from({ length: 12 }, () =>
-    Array.from({ length: 5 }, () => getDiceNumber())
+  const passphraseLength = 12;
+  const numberOfDiceThrows = 5;
+
+  return Array.from({ length: passphraseLength }, () =>
+    Array.from({ length: numberOfDiceThrows }, () => getDiceNumber())
   );
 }
 
@@ -98,3 +103,4 @@ function joinDiceThrows(array) {
 function diceThrows() {
   return joinDiceThrows(createDiceThrows());
 }
+*/
