@@ -74,33 +74,3 @@ function toggleSvgPaths(paths) {
     }
   });
 }
-
-/*
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getDiceNumber() {
-  const minimum = 1;
-  const maximun = 6;
-
-  return getRandomInt(minimum, maximun);
-}
-
-function createDiceThrows() {
-  const passphraseLength = 12;
-  const numberOfDiceThrows = 5;
-
-  return Array.from({ length: passphraseLength }, () =>
-    Array.from({ length: numberOfDiceThrows }, () => getDiceNumber())
-  );
-}
-
-function joinDiceThrows(array) {
-  return array.map((value) => Number(value.join("")));
-}
-
-function diceThrows() {
-  return joinDiceThrows(createDiceThrows());
-}
-*/
