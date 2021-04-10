@@ -99,6 +99,7 @@ li + li {
 .logo {
   width: 4.5rem;
   height: 4.5rem;
+  transform: rotate(45deg);
 }
 
 .dice {
