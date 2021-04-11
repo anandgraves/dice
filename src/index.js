@@ -1,10 +1,10 @@
 import "babel-polyfill";
+import { generatePassphrase } from "./generate-passphrase";
 
 init();
 
 async function init() {
   try {
-    const response = await import("./wordslist.json");
     const generateButton = document.querySelector("[data-generate]");
     const copyButton = document.querySelector("[data-passphrase-copy]");
     const input = document.querySelector("[data-passphrase]");
@@ -12,9 +12,9 @@ async function init() {
     generateButton.removeAttribute("disabled");
     generateButton.textContent = "Generate secure passphrase";
 
-    generateButton.onclick = function () {
-      const passphrase = diceThrows().map((dice) => response[dice]);
-      input.textContent = passphrase.join(" ");
+    generateButton.onclick = async function () {
+      const generatedPassphrase = await generatePassphrase();
+      input.textContent = generatedPassphrase;
     };
 
     copyButton.onclick = handleCopyToClipboard;
@@ -73,28 +73,4 @@ function toggleSvgPaths(paths) {
       path.setAttribute("visibility", "visible");
     }
   });
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getDiceNumber() {
-  var MINIMUM = 1;
-  var MAXIMUM = 6;
-  return getRandomInt(MINIMUM, MAXIMUM);
-}
-
-function createDiceThrows() {
-  return Array.from({ length: 12 }, () =>
-    Array.from({ length: 5 }, () => getDiceNumber())
-  );
-}
-
-function joinDiceThrows(array) {
-  return array.map((value) => Number(value.join("")));
-}
-
-function diceThrows() {
-  return joinDiceThrows(createDiceThrows());
 }
