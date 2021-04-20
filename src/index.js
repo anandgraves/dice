@@ -13,6 +13,7 @@ async function init() {
     generateButton.textContent = "Generate secure passphrase";
 
     generateButton.onclick = async function () {
+      input.textContent = `Just a moment. Generating your secure passphrase...`;
       const generatedPassphrase = await generatePassphrase();
       input.textContent = generatedPassphrase;
     };
