@@ -25,7 +25,7 @@ function throwDice() {
 
 async function mapDiceNumbersToWords() {
   try {
-    const wordslist = await import("./wordslist.json");
+    const wordslist = await import("../wordslist.json");
     const generatedPassphrase = throwDice().map((dice) => wordslist[dice]);
     return generatedPassphrase.join(" ");
   } catch (error) {
