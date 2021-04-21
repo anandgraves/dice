@@ -157,12 +157,7 @@ li + li {
   text-align: center;
 }
 
-.passphrase__content:not(:empty) + .passphrase__button {
-  display: block;
-}
-
 .passphrase__button {
-  display: none;
   position: absolute;
   right: 0;
   margin-right: 0.5rem;
