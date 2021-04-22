@@ -1,25 +1,24 @@
 import { generatePassphrase } from "./generate-passphrase";
 
-async function init() {
+function init() {
   const generateButton = document.querySelector("[data-generate]");
   const copyButton = document.querySelector("[data-passphrase-copy]");
-  const input = document.querySelector("[data-passphrase]");
 
   generateButton.removeAttribute("disabled");
   generateButton.textContent = "Generate secure passphrase";
 
-  try {
-    generateButton.onclick = async function () {
-      input.textContent = `Just a moment. Generating your secure passphrase...`;
-      const generatedPassphrase = await generatePassphrase();
-      input.textContent = generatedPassphrase;
-      copyButton.classList.remove("hidden");
-    };
+  generateButton.onclick = onButtonGeneratePassphrase;
+  copyButton.onclick = onCopyToClipboard;
+}
 
-    copyButton.onclick = onCopyToClipboard;
-  } catch (error) {
-    console.error("Oops, problem with generating pasphrase");
-  }
+async function onButtonGeneratePassphrase() {
+  const input = document.querySelector("[data-passphrase]");
+  const copyButton = document.querySelector("[data-passphrase-copy]");
+
+  input.textContent = `Just a moment. Generating your secure passphrase...`;
+  const generatedPassphrase = await generatePassphrase();
+  input.textContent = generatedPassphrase;
+  copyButton.classList.remove("hidden");
 }
 
 async function onCopyToClipboard() {
